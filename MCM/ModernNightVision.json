@@ -34,7 +34,7 @@
 					"enable": 1,
 					"type": 5,
 					"mouse": "$ControllerSupportMouse",
-				   "vars": [ { "form": "Goo1", "auxVar": "*SNV_INI", "key": 1, "configINI": "General:bControllerSupport", "default": 1 } ]
+					"vars": [ { "form": "Goo1", "auxVar": "*SNV_INI", "key": 1, "configINI": "General:bControllerSupport", "default": 1 } ]
 				},
 				"7": {
 					"title": "$SwitchMode",
