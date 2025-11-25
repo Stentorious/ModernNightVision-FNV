@@ -16,7 +16,7 @@ begin Function {iButton}
 	AssignKeyword rArmor "SNV_Override"
 	Goo1.AuxVarSetFlt "*MNV_Menu" 0 2
 
-	MessageExAlt 1 "#2|Created override config: %z" sINIPath
+	MessageExAlt 1 "#3|Created override config: %z" sINIPath
 
 	; Vision mode
 	AuxVarSetFlt "*MNV_NV" (AuxVarGetFlt "*MNV_NV" 0 Caps001) 0 rArmor
@@ -68,8 +68,9 @@ begin Function {iButton}
 	AuxVarSetStr "*MNV_NV" (AuxVarGetStr "*MNV_NV" 13 Caps001) 13 rArmor
 	AuxVarSetStr "*MNV_TV" (AuxVarGetStr "*MNV_TV" 13 Caps001) 13 rArmor
 
-	; Refresh MCM extender submenus
+	; Refresh MCM
 	Call (CompileScript "MCMExtender\RefreshSubmenus.gek") 1 1 1 1 (ReadFromJSON (Goo1.AuxVarGetStr "*MCMExt_State" 3) "" 0 1)
+	SetUIFloat "StartMenu/MCM/_Reset" 1
 
 	sv_Destruct sINIPath
 
