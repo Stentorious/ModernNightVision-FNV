@@ -106,6 +106,7 @@ if rHelmet == NVDLC04HelmetRiotGearOE
 	endif
 endif
 AssignKeyword NVDLC04HelmetRiotGear "ModernNightVision"
+SetESM 89600 NVDLC04HelmetRiotGear
 
 ; Advanced riot gear support
 rHelmet = GetObjectEffect NVDLC04HelmetRiotGearCustom
@@ -121,6 +122,7 @@ if rHelmet == NVDLC04HelmetRiotGearCustomOE
 	endif
 endif
 AssignKeyword NVDLC04HelmetRiotGearCustom "ModernNightVision"
+SetESM 89600 NVDLC04HelmetRiotGearCustom
 
 ; Elite riot gear support
 rHelmet = GetObjectEffect NVDLC04HelmetRiotGearUnique
@@ -136,6 +138,7 @@ if rHelmet == NVDLC04HelmetRiotGearUniqueOE
 	endif
 endif
 AssignKeyword NVDLC04HelmetRiotGearUnique "ModernNightVision"
+SetESM 89600 NVDLC04HelmetRiotGearUnique
 
 ; TTW Night vision goggles support
 if eval IsModLoaded "TaleOfTwoWastelands.esm"
