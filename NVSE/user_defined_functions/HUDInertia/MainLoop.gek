@@ -7,6 +7,7 @@ float fPitch
 float fOffsetMoveY
 float fOffsetCamX
 float fOffsetCamY
+float fOffsetCamZ
 float fOffsetAnimX
 float fOffsetAnimY
 float fOffsetUIX
@@ -29,7 +30,7 @@ ref rTemp
 
 begin Function {}
 
-	if eval (fDeltaTime = GGetSecPass) <= 0
+	if eval (fDeltaTime = GGetSecPass) <= 0.0001
 		return
 	endif
 
@@ -38,9 +39,8 @@ begin Function {}
 
 	; Parameters
 	iIgnoreMovement = (eval Player.GetFallTimeElapsed > 0.0)
-	fSwimMul = 1 - ((Player.IsPlayerSwimming) * 0.5)
 	fMouseInertiaMul = Goo1.AuxVarGetFlt "*HUDInertia_INI" 0
-	fSmoothRate = 1 - Exp(-(Goo1.AuxVarGetFlt "*HUDInertia_INI" 1) * fDeltaTime)
+	fSmoothRate = 1 - Exp (-(Goo1.AuxVarGetFlt "*HUDInertia_INI" 1) * fDeltaTime)
 	fSpeedMax = Goo1.AuxVarGetFlt "*HUDInertia_INI" 7
 
 	; Rotation inertia
@@ -50,6 +50,8 @@ begin Function {}
 	Goo1.AuxVarSetFlt "*HUDInertia_Cache" fPitch 1
 	if eval V3Len fOffsetCamX fOffsetCamY 0 > 250
 		V3Norm "fOffsetCamX" "fOffsetCamY" "fOffsetCamZ" (fOffsetCamX) (fOffsetCamY) (fTemp)
+		fOffsetCamX *= 250
+		fOffsetCamY *= 250
 	endif
 
 	; Vertical inertia
@@ -59,8 +61,8 @@ begin Function {}
 	; Calculate player's local velocity/speed
 	fForwardX = FSin fYaw
 	fForwardY = FCos fYaw
-	fVelocityXWorld = Player.GetActorVelocity X
-	fVelocityYWorld = Player.GetActorVelocity Y
+	fVelocityXWorld = GetMinOf (Player.GetActorVelocity X) 1000
+	fVelocityYWorld = GetMinOf (Player.GetActorVelocity Y) 1000
 	fVelocityXLocal = fForwardY * fVelocityXWorld - fForwardX * fVelocityYWorld
 	fVelocityYLocal = fForwardY * fVelocityYWorld + fForwardX * fVelocityXWorld
 	fSpeed = V3Len fVelocityXLocal fVelocityYLocal 0
@@ -69,9 +71,10 @@ begin Function {}
 	; Calculate movement animation offsets
 	if eval iIgnoreMovement == 0
 		Goo1.AuxVarSetFlt "*HUDInertia_Cache" (fAnimPhase = Goo1.AuxVarGetFlt "*HUDInertia_Cache" 5 + (fSpeed * fDeltaTime * fSpeedFactor)) 5
-		fOffsetAnimY = FSin(fAnimPhase * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 5) * fSwimMul) * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 3) * fSpeedFactor * fSpeedFactor
-		fOffsetAnimX = FSin(fAnimPhase * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 6) * fSwimMul) * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 4) * fSpeedFactor * (Clamp (-(fVelocityXLocal) / fSpeedMax) -1 1) * (1 - (0.5))
-		if eval Abs(fVelocityXLocal) < 0.1
+		fSwimMul = 1 - ((Player.IsPlayerSwimming) * 0.5)
+		fOffsetAnimY = FSin (fAnimPhase * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 5) * fSwimMul) * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 3) * fSpeedFactor * fSpeedFactor
+		fOffsetAnimX = FSin (fAnimPhase * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 6) * fSwimMul) * (Goo1.AuxVarGetFlt "*HUDInertia_INI" 4) * fSpeedFactor * (Clamp (-(fVelocityXLocal) / fSpeedMax) -1 1) * (1 - (0.5))
+		if eval Abs (fVelocityXLocal) < 0.1
 			fOffsetAnimX = 0
 			if eval fSpeed == 0 && fAnimPhase > 0
 				Goo1.AuxVarSetFlt "*HUDInertia_Cache" 0 5
