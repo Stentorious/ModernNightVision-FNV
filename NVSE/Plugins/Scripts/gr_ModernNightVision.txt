@@ -114,7 +114,7 @@ if rHelmet == NVDLC04HelmetRiotGearCustomOE
 	if GetNthEffectBase rHelmet 3 == NVDLC04DummySneakSightBE
 		RemoveNthEffect NVDLC04HelmetRiotGearCustomOE 3
 	endif
-		if GetNthEffectBase rHelmet 2 == NVDLC04DummySneakSightBE
+	if GetNthEffectBase rHelmet 2 == NVDLC04DummySneakSightBE
 		RemoveNthEffect NVDLC04HelmetRiotGearCustomOE 2
 	endif
 	if GetNthEffectBase rHelmet 0 == NVDLC04RedNightvisionBE
@@ -130,7 +130,7 @@ if rHelmet == NVDLC04HelmetRiotGearUniqueOE
 	if GetNthEffectBase rHelmet 4 == NVDLC04DummySneakSightBE
 		RemoveNthEffect NVDLC04HelmetRiotGearUniqueOE 4
 	endif
-		if GetNthEffectBase rHelmet 3 == NVDLC04DummySneakSightBE
+	if GetNthEffectBase rHelmet 3 == NVDLC04DummySneakSightBE
 		RemoveNthEffect NVDLC04HelmetRiotGearUniqueOE 3
 	endif
 	if GetNthEffectBase rHelmet 0 == NVDLC04RedNightvisionBE
