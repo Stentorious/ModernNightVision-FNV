@@ -23,20 +23,20 @@
 	<_EnergyUse_0> 1 </_EnergyUse_0>
 	<_EnergyUse_1> 1 </_EnergyUse_1>
 	<_EnergyUse>
-		<copy src="me()" trait="_Mode"/>
-		<copy src="me()" trait="_EnergyUse_"/>
+		<copy src="me()" trait="_Mode" />
+		<copy src="me()" trait="_EnergyUse_" />
 	</_EnergyUse>
 	<_EnergyUseCalc>
-		<copy src="me()" trait="_EnergyUse"/>
-		<mul src="me()" trait="_EnergyRequired"/>
+		<copy src="me()" trait="_EnergyUse" />
+		<mul src="me()" trait="_EnergyRequired" />
 	</_EnergyUseCalc>
 
 	<!-- Static -->
 	<_Static_0> 1 </_Static_0>
 	<_Static_1> 1 </_Static_1>
 	<_Static>
-		<copy src="me()" trait="_Mode"/>
-		<copy src="me()" trait="_Static_"/>
+		<copy src="me()" trait="_Mode" />
+		<copy src="me()" trait="_Static_" />
 	</_Static>
 
 	<!-- Alpha control -->
@@ -82,16 +82,16 @@
 		<zoom> -1 </zoom>
 		<systemcolor> 0 </systemcolor>
 		<red>
-			<copy src="parent()" trait="_Mode"/>
-			<copy src="parent()" trait="_red_"/>
+			<copy src="parent()" trait="_Mode" />
+			<copy src="parent()" trait="_red_" />
 		</red>
 		<green>
-			<copy src="parent()" trait="_Mode"/>
-			<copy src="parent()" trait="_green_"/>
+			<copy src="parent()" trait="_Mode" />
+			<copy src="parent()" trait="_green_" />
 		</green>
 		<blue>
-			<copy src="parent()" trait="_Mode"/>
-			<copy src="parent()" trait="_blue_"/>
+			<copy src="parent()" trait="_Mode" />
+			<copy src="parent()" trait="_blue_" />
 		</blue>
 
 		<_index> 0 </_index>
@@ -106,8 +106,8 @@
 		<_filename_8> Interface\Stentorious\_Common\Static\8.dds </_filename_8>
 		<_filename_9> Interface\Stentorious\_Common\Static\9.dds </_filename_9>
 		<filename>
-			<copy src="me()" trait="_index"/>
-			<copy src="me()" trait="_filename_"/>
+			<copy src="me()" trait="_index" />
+			<copy src="me()" trait="_filename_" />
 		</filename>
 
 	</image>
@@ -407,9 +407,9 @@
 				<copy src="parent()" trait="_IconWidth" />
 				<mul>
 					<copy> 1 </copy>
-					<sub src="parent()" trait="_EnergyPerc"/>
+					<sub src="parent()" trait="_EnergyPerc" />
 				</mul>
-				<onlyif src="parent()" trait="_IconStyle"/>
+				<onlyif src="parent()" trait="_IconStyle" />
 			</y>
 			<image name="Icon">
 				<visible> 1 </visible>
