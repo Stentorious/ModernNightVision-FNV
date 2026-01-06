@@ -72,8 +72,7 @@
 			<div> 2 </div>
 		</rotateaxisy>
 		<rotateangle>
-			<copy> 0 </copy>
-			<add> 3.141592653 </add>
+			<copy> 3.141592653 </copy>
 			<onlyif src="parent()" trait="_Random" />
 		</rotateangle>
 		<depth> -5001 </depth>
@@ -400,7 +399,7 @@
 
 		<rect name="IconClip">
 			<clipwindow>1</clipwindow>
-			<depth>0</depth>
+			<depth> 0 </depth>
 			<width> <copy src="parent()" trait="_IconWidth" /> </width>
 			<height> <copy src="parent()" trait="_IconWidth" /> </height>
 			<y>
