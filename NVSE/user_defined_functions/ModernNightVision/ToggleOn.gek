@@ -17,7 +17,7 @@ begin Function {iIndex}
 		iVisionMode = Goo1.AuxVarGetFlt "SNV_Mode" 1
 
 		; Energy
-		AuxTimerStart "*SNV_Energy" 1 30
+		Goo1.AuxTimerStart "*SNV_Energy" 1 30
 
 	; Status: On
 	else
@@ -33,7 +33,7 @@ begin Function {iIndex}
 			else
 
 				; Remove thermal effect shader from all refs
-				AuxTimerStop "*SNV_Thermal"
+				Goo1.AuxTimerStop "*SNV_Thermal"
 				if eval (iIndex = Goo1.AuxVarSize "*SNV_Shader") > 0
 					while (iIndex -= 1) > -1
 						if eval IsReference (rActor = Goo1.AuxVarGetRef "*SNV_Shader" iIndex)
@@ -61,7 +61,7 @@ begin Function {iIndex}
 	elseif eval iVisionMode == 1
 		IMOD NVDLC04RedNightvisionISFX
 		RIMOD NVDLC03GhostNightvisionISFX
-		AuxTimerStart "*SNV_Thermal" 5 30
+		Goo1.AuxTimerStart "*SNV_Thermal" 5 30
 	endif
 
 	PlaySound UIPipBoyLightOn

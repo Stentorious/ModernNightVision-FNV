@@ -22,7 +22,7 @@ begin Function {array_var aUpdatedMods}
 		; Validate vision mode state
 		iVisionMode = Goo1.AuxVarGetFlt "SNV_Mode" 1
 		if eval Goo1.AuxVarGetFlt "SNV_Mode" 0 && ((iVisionMode == 0 && Goo1.AuxVarGetFlt "*SNV_INI" 6 == 0) || (iVisionMode == 1 && Goo1.AuxVarGetFlt "*SNV_INI" 7 == 0))
-			AuxTimerStop "*SNV_KeyToggle"
+			Goo1.AuxTimerStop "*SNV_KeyToggle"
 			Call (CompileScript "ModernNightVision/ToggleOff.gek") 1
 		endif
 

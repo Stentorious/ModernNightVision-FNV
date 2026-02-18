@@ -16,7 +16,7 @@ begin Function {iFlag}
 		RIMOD NVDLC04RedNightvisionISFX
 
 		; Remove effect shader from all refs
-		AuxTimerStop "*SNV_Thermal"
+		Goo1.AuxTimerStop "*SNV_Thermal"
 		if eval (iSize = Goo1.AuxVarSize "*SNV_Shader") > 0
 			while (iSize -= 1) > -1
 				if eval IsReference (rActor = Goo1.AuxVarGetRef "*SNV_Shader" iSize)
@@ -45,6 +45,6 @@ begin Function {iFlag}
 	SetUIFloatGradual "HUDMainMenu\ModernNightVision\_EnergyAlpha" 1 0 0.2
 
 	; Reset power
-	AuxTimerStop "*SNV_Energy"
+	Goo1.AuxTimerStop "*SNV_Energy"
 
 end

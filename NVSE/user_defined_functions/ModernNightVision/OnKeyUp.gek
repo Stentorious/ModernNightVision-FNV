@@ -16,12 +16,12 @@ string_var sEnergy
 begin Function {iKeyID}
 
 	; Toggle vision mode
-	if eval (!MenuMode && Player.GetDead == 0 && AuxTimerTimeLeft "*SNV_KeyToggle" != -1)
+	if eval (!MenuMode && Player.GetDead == 0 && Goo1.AuxTimerTimeLeft "*SNV_KeyToggle" != -1)
 	else
 		return
 	endif
 
-	AuxTimerStop "*SNV_KeyToggle"
+	Goo1.AuxTimerStop "*SNV_KeyToggle"
 
 	; Validate vision modes
 	iVisionState = Goo1.AuxVarGetFlt "SNV_Mode" 0
@@ -124,7 +124,7 @@ begin Function {iKeyID}
 			DisablePlayerControlsAltEx 30100
 			Goo1.AuxVarSetRef "SNV_Armor" rArmor
 			Player.PlayAnimationPath "ModernNightVision\On.kf" 1
-			AuxTimerStart "*SNV_Animation" 1.05 14
+			Goo1.AuxTimerStart "*SNV_Animation" 1.05 14
 			Goo1.AuxVarSetFlt "*SNV_Animation" 1
 
 			; Overlay fade

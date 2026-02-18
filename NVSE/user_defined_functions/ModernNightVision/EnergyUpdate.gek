@@ -54,7 +54,7 @@ begin Function {sTimerName, rOwner}
 		SetUIFloatAlt "HUDMainMenu\ModernNightVision\_EnergyMax" fEnergy
 		PlaySound WPNPistolLaserCharge
 	else
-		AuxTimerStop "*SNV_KeyToggle"
+		Goo1.AuxTimerStop "*SNV_KeyToggle"
 		Call (CompileScript "ModernNightVision/ToggleOff.gek") 1
 		PlaySound OBJComputerTerminalPowerDown
 	endif
