@@ -16,8 +16,7 @@ string_var sEnergy
 begin Function {iKeyID}
 
 	; Toggle vision mode
-	if eval (!MenuMode && Player.GetDead == 0 && Goo1.AuxTimerTimeLeft "*SNV_KeyToggle" != -1)
-	else
+	if eval MenuMode || Player.GetDead || Goo1.AuxTimerTimeLeft "*SNV_KeyToggle" == -1
 		return
 	endif
 

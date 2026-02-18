@@ -2,10 +2,12 @@ int	iMenuID
 
 begin Function {iMenuID}
 
-	if eval !(MenuMode 1)
-		SetUIFloatAlt "HudMainMenu\ModernNightVision\_PipBoy" 0
-		SetUIFloatGradual "HudMainMenu\ModernNightVision\_AlphaMenu" (Goo1.AuxVarGetFlt "*SNV_INI" 2)
-		SetUIFloatGradual "HudMainMenu\ModernNightVision\_AlphaMenu" (Goo1.AuxVarGetFlt "*SNV_INI" 2) 100 0.25
+	if eval MenuMode 1
+		return
 	endif
+
+	SetUIFloatAlt "HudMainMenu\ModernNightVision\_PipBoy" 0
+	SetUIFloatGradual "HudMainMenu\ModernNightVision\_AlphaMenu" (Goo1.AuxVarGetFlt "*SNV_INI" 2)
+	SetUIFloatGradual "HudMainMenu\ModernNightVision\_AlphaMenu" (Goo1.AuxVarGetFlt "*SNV_INI" 2) 100 0.25
 
 end

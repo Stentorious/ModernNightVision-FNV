@@ -8,6 +8,8 @@ array_var aActorRefs
 
 begin Function {sTimerName, rOwnerForm}
 
+	sv_Destruct sTimerName
+
 	; Get cached and nearby refs
 	aShaderRefs = Goo1.AuxVarGetAsArr "*SNV_Shader"
 	aActorRefs = GetActorsByProcessingLevel 0

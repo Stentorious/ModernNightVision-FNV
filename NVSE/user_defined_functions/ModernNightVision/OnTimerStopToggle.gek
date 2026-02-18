@@ -13,21 +13,21 @@ begin Function {sTimerName, rOwner}
 	; Play animation
 	if eval Goo1.AuxVarGetFlt "*SNV_INI" 5 && IsPC1stPerson
 		if eval Player.IsIdlePlaying || Player.IsAnimPlayingEx 5 || Player.IsAnimPlayingEx 4 || Player.GetAnimAction == 13 || Player.GetIsRagdolled || IsInKillCam; || GetPlayerControlsDisabled 1 1 0 1 1 0 0
-		else
-			if eval Player.IsAnimSequencePlaying "ModernNightVision\On.kf"
-				Player.DeactivateAnim "ModernNightVision\On.kf"
-			endif
-			if eval Player.IsAnimSequencePlaying "ModernNightVision\Off.kf"
-				Player.DeactivateAnim "ModernNightVision\Off.kf"
-			endif
-			if eval GSIV 0 > 0
-				SetSmoothIronsightsValue 0 0
-			endif
-			DisablePlayerControlsAltEx 30100
-			Player.PlayAnimationPath "ModernNightVision\Off.kf" 1
-			Goo1.AuxTimerStart "*SNV_Animation" 1.05 14
-			Goo1.AuxVarSetFlt "*SNV_Animation" 1
+			return
 		endif
+		if eval Player.IsAnimSequencePlaying "ModernNightVision\On.kf"
+			Player.DeactivateAnim "ModernNightVision\On.kf"
+		endif
+		if eval Player.IsAnimSequencePlaying "ModernNightVision\Off.kf"
+			Player.DeactivateAnim "ModernNightVision\Off.kf"
+		endif
+		if eval GSIV 0 > 0
+			SetSmoothIronsightsValue 0 0
+		endif
+		DisablePlayerControlsAltEx 30100
+		Player.PlayAnimationPath "ModernNightVision\Off.kf" 1
+		Goo1.AuxTimerStart "*SNV_Animation" 1.05 14
+		Goo1.AuxVarSetFlt "*SNV_Animation" 1
 	else
 		Call (CompileScript "ModernNightVision/ToggleOff.gek") 1
 	endif
