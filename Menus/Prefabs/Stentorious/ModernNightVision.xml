@@ -282,8 +282,7 @@
 		<_OffsetY> 0 </_OffsetY>
 		<_IconScale> 1 </_IconScale>
 		<_EnergyPerc>
-			<copy> 1 </copy>
-			<onlyifnot src="parent()" trait="_EnergyRequired" />
+			<not src="parent()" trait="_EnergyRequired" />
 			<add>
 				<copy src="parent()" trait="_EnergyCharge" />
 				<div src="parent()" trait="_EnergyMax" />
@@ -353,11 +352,8 @@
 			<y> <copy src="sibling(ChargeText)" trait="y" /> </y>
 			<zoom> <copy src="sibling(ChargeText)" trait="zoom" /> </zoom>
 			<systemcolor>
-				<copy> &hudmain; </copy>
-				<add>
-					<copy src="grandparent()" trait="_EnergyCount" />
-					<eq> 0 </eq>
-				</add>
+				<not src="grandparent()" trait="_EnergyCount" />
+				<add> &hudmain; </add>
 			</systemcolor>
 			<brightness> 255 </brightness>
 			<font> <copy src="sibling(ChargeText)" trait="font" /> </font>
@@ -375,21 +371,13 @@
 			<alpha> <copy src="sibling(CountText)" trait="_Alpha" /> </alpha>
 			<depth> 3 </depth>
 			<x>
-				<copy src="sibling(ChargeText)" trait="x" />
-				<add>
-					<copy> 20 </copy>
-					<mul src="parent()" trait="_IconScale" />
-				</add>
+				<copy> 20 </copy>
+				<mul src="parent()" trait="_IconScale" />
+				<add src="sibling(ChargeText)" trait="x" />
 			</x>
 			<y> <copy src="sibling(ChargeText)" trait="y" /> </y>
 			<zoom> <copy src="sibling(ChargeText)" trait="zoom" /> </zoom>
-			<systemcolor>
-				<copy> &hudmain; </copy>
-				<add>
-					<copy src="grandparent()" trait="_EnergyCount" />
-					<eq> 0 </eq>
-				</add>
-			</systemcolor>
+			<systemcolor> <copy src="sibling(CountText)" trait="systemcolor" /> </systemcolor>
 			<brightness> 255 </brightness>
 			<font> <copy src="sibling(ChargeText)" trait="font" /> </font>
 			<justify> &left; </justify>
@@ -426,7 +414,7 @@
 				<clips> 1 </clips>
 				<systemcolor> <copy src="grandparent()" trait="_ColorCharge" /> </systemcolor>
 				<brightness> 204 </brightness>
-				<filename> <copy src="grandparent()" trait="_IconPath" />  </filename>
+				<filename> <copy src="grandparent()" trait="_IconPath" /> </filename>
 			</image>
 		</rect>
 		<image name="Background">
