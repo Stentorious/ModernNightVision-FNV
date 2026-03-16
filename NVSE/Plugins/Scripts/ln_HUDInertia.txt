@@ -26,20 +26,16 @@ endif
 Goo1.AuxVarSetFlt "*HUDInertia_Init" 1 0
 
 ; Check for requirements
-if eval GetNVSEVersion < 6 || (GetNVSEVersion == 6 && GetNVSERevision < 4)
-	MessageBoxEx "HUD Inertia missing requirement!%rInstall xNVSE 6.3.10+."
+if eval GetNVSEVersionFull < 6.40
 	return
 endif
 if GetPluginVersion "JohnnyGuitarNVSE" < 360
-	MessageBoxEx "HUD Inertia missing requirement!%rInstall latest JohnnyGuitar NVSE plugin."
 	return
 endif
 if GetPluginVersion "ShowOffNVSE Plugin" < 165
-	MessageBoxEx "HUD Inertia missing requirement!%rInstall latest ShowOff NVSE plugin."
 	return
 endif
 if GetPluginVersion "UI Organizer Plugin" < 230
-	MessageBoxEx "HUD Inertia missing requirement!%rInstall latest User Interface Organizer plugin."
 	return
 endif
 
