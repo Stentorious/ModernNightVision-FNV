@@ -2,9 +2,9 @@ int	iKeyID
 
 int iVisionState
 int iVisionMode
-int iFlag
 int iSize
 int iCount
+int iRain
 float fEnergy
 float fEnergyUse
 ref rArmor
@@ -129,6 +129,7 @@ begin Function {iKeyID}
 			; Overlay fade
 			if eval iVisionState == 0
 				SetUIFloatGradual "HUDMainMenu\ModernNightVision\_AlphaOverlay" 0 1 0.2
+				iRain = 1
 			endif
 
 		endif
@@ -139,9 +140,20 @@ begin Function {iKeyID}
 		; Overlay fade
 		if eval iVisionState == 0
 			SetUIFloatGradual "HUDMainMenu\ModernNightVision\_AlphaOverlay" 1
+			iRain = 1
 		endif
 		Call (CompileScript "ModernNightVision/ToggleOn.gek") 0
 	endif
+
+	; Update Atmospheric Rain Drops effect
+	if eval iRain && Goo1.AuxVarGetFlt "*RainDrops_Init" && Goo1.AuxVarGetFlt "*RainDrops_State" == 0 && IsPC1stPerson
+		Goo1.AuxVarSetFlt "*RainDrops_State" 1
+		ClearScreenSplatter
+		SetNumericGameSetting "fISDropsDensityMultiplier" 1
+		SetNumericGameSetting "bISDropsEnableMovingDropsOverride" 1
+		SetNumericGameSetting "bISDropsEnableFoggingOverride" 1
+	endif
+
 
 	sv_Destruct sEnergy
 
