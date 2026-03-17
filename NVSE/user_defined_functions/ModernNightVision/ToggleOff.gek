@@ -45,7 +45,7 @@ begin Function {iFlag}
 	SetUIFloatGradual "HUDMainMenu\ModernNightVision\_EnergyAlpha" 1 0 0.2
 
 	; Update Atmospheric Rain Drops effect
-	if eval Goo1.AuxVarGetFlt "*RainDrops_State" && GetUIFloatAlt "HUDMainMenu\HelmetOverlay\visible" > 0 && (GetUIFloatAlt "HUDMainMenu\HelmetOverlay\Helmet\visible" > 0 || GetUIFloatAlt "HUDMainMenu\HelmetOverlay\Glasses\visible" > 0)
+	if eval Goo1.AuxVarGetFlt "*RainDrops_State" && GetUIFloatAlt "HUDMainMenu\HelmetOverlay\visible" < 1 || (GetUIFloatAlt "HUDMainMenu\HelmetOverlay\Helmet\visible" < 1 && GetUIFloatAlt "HUDMainMenu\HelmetOverlay\Glasses\visible" < 1)
 		Goo1.AuxVarSetFlt "*RainDrops_State" 0
 		ClearScreenSplatter
 		SetNumericGameSetting "fISDropsDensityMultiplier" 0.25
