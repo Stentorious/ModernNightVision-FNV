@@ -1,6 +1,4 @@
-Stentorious\ModernNightVision_Preload.xml::HUDMainMenu
-!#Stentorious\RadiationVisuals.xml
-Stentorious\ModernNightVision_Overlay.xml::HUDMainMenu
-true
 Stentorious\ModernNightVision.xml::HUDMainMenu
+true
+Stentorious\TexturePreload\ModernNightVision.xml::@Prefabs\Stentorious\TexturePreload\_Common\_Root.xml::TexturePreload
 true
