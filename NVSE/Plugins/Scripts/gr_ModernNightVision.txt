@@ -51,34 +51,6 @@ if eval IsModLoaded "Enhanced Vision.esp" || IsModLoaded "Advanced Recon Tech.es
 	MessageBoxEx "Conflicting Night Vision mod detected!%rModern Night Vision has been disabled."
 	return
 endif
-if eval GetNVSEVersion < 6 || (GetNVSEVersion == 6 && GetNVSERevision < 4)
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall xNVSE 6.4.0+."
-	return
-endif
-if GetPluginVersion "JohnnyGuitarNVSE" < 360
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall latest JohnnyGuitar NVSE plugin."
-	return
-endif
-if GetPluginVersion "ShowOffNVSE Plugin" < 165
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall latest ShowOff NVSE plugin."
-	return
-endif
-if GetPluginVersion "UI Organizer Plugin" < 230
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall latest User Interface Organizer plugin."
-	return
-endif
-if GetPluginVersion "kNVSE" < 37
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall latest kNVSE plugin."
-	return
-endif
-if GetPluginVersion "lStewieAl's Tweaks" < 906
-	MessageBoxEx "Modern Night Vision missing requirement!%rInstall latest lStewieAl's Tweaks."
-	return
-endif
-if eval FileExists "UIO\Public\RadiationVisuals.txt" && FileExists "Textures\Interface\Stentorious\RadiationVisuals\0_0.dds" == 0
-	MessageBoxEx "Modern Night Vision texture preload error.%rUpdate Radiation Visuals to latest version."
-	return
-endif
 Goo1.AuxVarSetFlt "*SNV_Init" 1 0
 
 string_var sINIPath = "Stentorious\ModernNightVision.ini"
