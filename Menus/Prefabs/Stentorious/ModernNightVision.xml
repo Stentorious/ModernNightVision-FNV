@@ -254,14 +254,9 @@
 
 	<rect name="EnergyDisplay">
 		<visible>
-			<copy src="ReticleCenter" trait="visible" />
-			<or src="AmmoTypeLabel" trait="visible" />
-			<or src="ActionPoints" trait="visible" />
-			<or src="HitPoints" trait="visible" />
-			<and>
-				<copy src="me()" trait="_AlphaMul" />
-				<gt> 0 </gt>
-			</and>
+			<copy src="me()" trait="_AlphaMul" />
+			<gt> 0 </gt>
+			<and src="ActionPoints" trait="visible" />
 			<!-- <and src="me()" trait="_visible" /> -->
 			<!-- <and src="me()" trait="_visible_pa" /> -->
 		</visible>
